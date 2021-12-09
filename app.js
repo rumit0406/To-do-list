@@ -16,13 +16,18 @@ app.get("/", (req, res) => {
     });
 })
 
+app.post("/delete", (req, res) => {
+    toDoList.splice(req.body.idx, 1);
+    res.redirect("/");
+})
+
 app.get("/about", (req, res) => {
     res.render("about");
 })
 
 app.post("/", (req, res) => {
     toDoList.push(req.body.task);
-    // console.log(task);
+    // console.log(req.body);
     res.redirect("/");
 })
 

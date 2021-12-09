@@ -5,10 +5,21 @@
     </div>
     <div class="box">
         <% for (let i = 0; i < toDoList.length; ++i) { %>
+            <form class="box" action="/delete" method="POST">
+                <%= toDoList[i] %>
+                <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash-alt fa-xs"></i>
+                </button>
+                <input type="hidden" id="idx" name="idx" value = <%= i.toString() %> >
+            </form>
+            <!--
+                <button type="submit">+</button>
+                <input type="hidden" id="idx" name="idx" value = <%= i.toString() %> >
             <div class = "item">
                 <input type = "checkbox">
                 <p> <%= toDoList[i] %> </p>
             </div>
+            -->
         <% } %>
         <form class="box" action="/" method="POST">
             <input type="text" id="task" name="task" placeholder="enter the task">
